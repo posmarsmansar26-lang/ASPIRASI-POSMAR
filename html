@@ -1,18 +1,1 @@
-from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
-
-# Home
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-# Aspirasi (dummy, bisa dikembangkan ke database)
-@app.route("/aspirasi", methods=["POST"])
-def aspirasi():
-    pesan = request.form.get("pesan")
-    print("Aspirasi masuk:", pesan)
-    return redirect(url_for("home"))
-
-if __name__ == "__main__":
-    app.run(debug=True)
